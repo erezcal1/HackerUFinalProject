@@ -1,0 +1,15 @@
+Erez Calderon - course name: קורס בניית אתרים - Full Stack Development,  course number: W011121MR, 
+		id: 318993847, phone numebr: 050-9344355
+This project is a fake Spotify clone(ish..)
+An admin can create new songs in a page only he can reach to 
+(you cant create an admin in the website only using the db to toggle the admin from false to true).
+Other people can create a user and mark a favorite song that they like.
+The favorite songs are marked with a golden star for not favorite and a green start if its a favorite.
+There is a page with your favorite songs where you can remove songs from there too.
+There is a possibility to change the password if you forgot it (but in the google Oauth 
+I have only added one email to test [you can only have a specifice email when you are on
+the free tier] the email is in the .env file).
+
+Everything is on the git
+https://github.com/erezcal1/HackerUFinalProject
+
