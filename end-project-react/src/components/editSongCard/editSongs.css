@@ -1,0 +1,10 @@
+.link-card {
+  text-decoration: none;
+  color: black;
+}
+.card-prev-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
