@@ -44,7 +44,6 @@ const RegisterUserPage = () => {
     );
     const { error } = validated_Value;
     if (error) {
-      console.log(error.details);
       for (let item of error.details) {
         toast.error(
           `${item.message
@@ -65,7 +64,6 @@ const RegisterUserPage = () => {
       }
     } else {
       if (password === confirm_Password) {
-        console.log("Hello world");
         axios
           .post("/auth/signup", {
             firstName: first_Name,

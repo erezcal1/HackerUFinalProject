@@ -7,7 +7,6 @@ const Navbar = () => {
   const userData = useSelector((state) => state.auth.userData);
 
   const showBiz = () => {
-    console.log(userData);
     if (userData.isAdmin) {
       return (
         <Fragment>

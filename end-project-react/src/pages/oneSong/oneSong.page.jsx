@@ -9,7 +9,6 @@ const OneSong = () => {
   const [songFromServer, setSongFromServer] = useState({});
 
   useEffect(() => {
-    console.log(song, "song params");
     getSong();
   }, []);
 
@@ -24,13 +23,10 @@ const OneSong = () => {
         console.log("error get one song", e);
       });
   };
-  // const renderSong = (songToRender) => {
-  // };
 
   return (
     <Fragment>
       <h1>{song.name}</h1>
-      {/* {renderSong(songFromServer)} */}
       {songFromServer && (
         <div>
           <HomeSong song={songFromServer}></HomeSong>;

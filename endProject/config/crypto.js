@@ -2,7 +2,6 @@ const crypto = require("crypto");
 
 const algorithm = process.env.ALGORITHM;
 
-// secretKey need to be 32 chars long
 const secretKey = process.env.SECRET_KEY_CRYPTO;
 
 const encrypt = (data) => {

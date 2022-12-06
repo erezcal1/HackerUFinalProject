@@ -11,7 +11,7 @@ const registerSchema = Joi.object({
         "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*() ]).{6,12}$"
       )
     )
-    .required(), //encryption happens after the first validation
+    .required(),
   confirm_Password: Joi.ref("password"),
 });
 

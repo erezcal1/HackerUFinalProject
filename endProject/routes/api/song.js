@@ -2,11 +2,6 @@ const express = require("express");
 const fs = require("fs").promises;
 const router = express.Router();
 
-const multer = require("../../config/multerTypes");
-const uploadImgMulter = multer.createMulter("uploads/", 3000000, {
-  type: multer.allowedTypes.img,
-});
-
 const usersModule = require("../../models/users.model");
 const songModel = require("../../models/songs.model");
 const songValidation = require("../../validation/song.validation");
@@ -14,7 +9,6 @@ const authMiddleware = require("../../middleware/auth.middleware");
 const sellerMiddleware = require("../../middleware/seller.middleware");
 const CustomRes = require("../../classes/CustomErr");
 const usersValidation = require("../../validation/users.validation");
-const { Product } = require("../../models/songs.model");
 
 router.get("/", async (req, res) => {
   try {
@@ -117,30 +111,24 @@ router.get("/favorites/:email", authMiddleware, async (req, res) => {
   }
 });
 
-router.post(
-  "/",
-  authMiddleware,
-  sellerMiddleware,
-  uploadImgMulter.single("productImage"),
-  async (req, res) => {
-    try {
-      const validateNewSong = await songValidation.validateNewSongSchema(
-        req.body
-      );
-      await songModel.insertSong(
-        validateNewSong.name,
-        validateNewSong.description,
-        validateNewSong.lyric,
-        validateNewSong.artist,
-        req.userData._id
-      );
-      res.json(new CustomRes(CustomRes.STATUSES.ok, "new song added"));
-    } catch (err) {
-      if (req.file) fs.unlink(req.file.path);
-      console.log(err);
-      res.status(401).json(err);
-    }
+router.post("/", authMiddleware, sellerMiddleware, async (req, res) => {
+  try {
+    const validateNewSong = await songValidation.validateNewSongSchema(
+      req.body
+    );
+    await songModel.insertSong(
+      validateNewSong.name,
+      validateNewSong.description,
+      validateNewSong.lyric,
+      validateNewSong.artist,
+      req.userData._id
+    );
+    res.json(new CustomRes(CustomRes.STATUSES.ok, "new song added"));
+  } catch (err) {
+    if (req.file) fs.unlink(req.file.path);
+    console.log(err);
+    res.status(401).json(err);
   }
-);
+});
 
 module.exports = router;

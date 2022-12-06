@@ -8,9 +8,9 @@ const LogOutPage = () => {
   const history = useHistory();
 
   useEffect(() => {
-    dispatch(authActions.logout()); //clear redux state
+    dispatch(authActions.logout());
     localStorage.clear();
-    history.push("/"); //navigate to home page
+    history.push("/");
   }, []);
 
   return <></>;

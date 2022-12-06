@@ -18,7 +18,6 @@ const HomeSong = ({ song, onRemoveFave }) => {
   useEffect(() => {
     if (userData.favorite && userData.favorite[0]) {
       if (userData.favorite.find((favorite) => favorite._id === song._id)) {
-        console.log(userData.favorite);
         setFavorite(true);
       }
     }
@@ -28,13 +27,6 @@ const HomeSong = ({ song, onRemoveFave }) => {
     console.log(song, "song");
     console.log(userData, "user");
   }, []);
-  // useEffect(() => {
-  //   if (favorite) {
-  //     setFavorite(false);
-  //   } else {
-  //     setFavorite(true);
-  //   }
-  // }, [userData]);
 
   const addToFavorite = () => {
     const validate_Song = Joi.validate(

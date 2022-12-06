@@ -14,7 +14,6 @@ const EditSongPage = () => {
   }, []);
 
   const handle_Edit_Song = (_id, updatedCard) => {
-    // console.log(updatedCard);
     axios
       .put(`/song/${_id}`, updatedCard)
       .then((res) => {
