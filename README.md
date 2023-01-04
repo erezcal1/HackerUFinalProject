@@ -1,4 +1,4 @@
-#fake Spotify clone
+# Fake Spotify clone
 
 An admin can create new songs in a page only he can reach to 
 (You can’t create an admin on the website only using the db to toggle the admin from false to true).
