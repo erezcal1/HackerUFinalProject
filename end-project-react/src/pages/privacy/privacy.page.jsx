@@ -1,4 +1,4 @@
-import "./privacy.css";
+// import "./privacy.css";
 
 const PrivacyPolicy = () => {
   return (
